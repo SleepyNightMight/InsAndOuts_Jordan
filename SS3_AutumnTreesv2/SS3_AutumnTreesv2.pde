@@ -4,6 +4,8 @@ PImage yellowleaf;
 float fall = 35;
 String quote ="Here comes Autumn!";
 
+//Hold mouse to change from spring to autumn
+//Hold any button to make leaves fall 
 
 void setup(){
 size (1080,720);
