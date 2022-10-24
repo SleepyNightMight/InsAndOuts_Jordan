@@ -54,8 +54,6 @@ int h3=85;
 int w3=250; 
 
 
-
-
 mountain();
 
 //Snow 
@@ -132,20 +130,19 @@ ellipse(245,290,150,150);
   
 }
 void mountain(){
-fill(175);
+  fill(175);
   triangle(-100, 600, 100, 140, 400, 600);
   triangle(870, 600, 1050, 140, 1250, 600);
-   if(move>500 && mouseX>=0 && mouseX<250 && mouseY>140&&mouseY<400){
-    fill(255);//SnowPeaks
-  triangle(48,260,178,260,100,140);
-  triangle(1000,260,1000,270,1250, 600);
- 
+    if(move>500 && mouseX>=0 && mouseX<250 && mouseY>140&&mouseY<400){
+      fill(255);//SnowPeaks
+      triangle(48,260,178,260,100,140);
+      triangle(1000,260,1000,270,1250, 600);
 }
-fill(255);
+ fill(255);//provides a visible area to glide over to show other snowpeaks
  triangle(1000,260,1100,260,1050, 140);
 }
 
-void aster(){
+void aster(){ //done for easier/cleaner application
 if(currentTime>timer3&& mouseY >=600){
    stroke(0);
   strokeWeight(1);
@@ -165,20 +162,15 @@ void mousePressed() {
   targetR= random (0);  
   targetG= random (100, 200);
   targetB= random (0);
-   
+   //no easing just for variation
   r2= random (0);  
   g2= random ( 90,255);
   b2= random (0);   
 
-/*   
- for (int i = 0; i <rains.length; i++) {
- rains[i].move();
- rains[i].display();
- }
- */
 }
 void keyPressed(){
-if(move>=1){
+//Resets canvas to intial state
+  if(move>=1){
 move = 0;
 currentTime=0;
 startTime=millis();

@@ -12,9 +12,9 @@ int timer2= 2000; // 2 sec for color change
 int timer3=14000; //14 sec color change 
 int timer4 = 7000;//7 sec 
 int currentTime = 0;
-boolean button=false;
+//boolean button=false;
 
-float easing =.6;
+float easing =.3;
 
 float r= 0;
 float g= 255;
@@ -27,24 +27,18 @@ float r2= 0;
 float g2= 255;
 float b2= 0;
 
-
 float move = 3;
 
-//Rain[] rains=new Rain[50];
 int[] starX = new int[1000];
 int[] starY = new int[1000];
 color[] starColor = new color[1000];
 int starSize = 3; // the size of the twinkling stars
 
 void setup(){
-  //frameRate = 120;
 size(1080,900);
 flower =loadImage("flower.png");
 flower2 =loadImage("flower2.png");
-/*
-for(int i=0;i<rains.length;i++){
-rains[i]=new Rain();
-*/
+
  for (int i = 0; i < starX.length; i++) {
     starX[i] =(int)random(width);
     starY[i] = (int)random(600);
@@ -53,22 +47,23 @@ rains[i]=new Rain();
 }
 
 void draw(){
-//currentTime =millis();
-//currentTime =millis();
 currentTime=millis()-startTime;
   background(#48a8e9);
+  println("Morning");
  
-
-
 if(currentTime>timer4){
   background(#EA6D0C); 
+  println("Sunset");
 } 
 if(currentTime>timer3){
   background(#191970); //night
+  println("Night");
+  
   if(mouseY>600){
   aster();
   }
 } 
+//prints amount of time passed(ms)
 println("Time passed = "+  currentTime);
 
  
@@ -78,11 +73,15 @@ println("Time passed = "+  currentTime);
   
  if(move >= 0 && move <=250){
 spring();
+println("Spring");
  }else if (move >= 251 && move<=500)  {
   autumn();
+  println("Autumn");
  }else{
    winter();
+   println("Winter");
   }
+  //smoothens color transition during spring 
    float d_r = targetR - r;
   r += d_r * easing;
   
@@ -91,9 +90,11 @@ spring();
   
   float d_b = targetB - b;
   b += d_b * easing;
-  
+ 
+   //tracks and prints position of move on yAxis
+ println("Move = " + move);
+ 
   
    frameRate(12);
   println(mouseX + " : " + mouseY); 
- println("Move = " + move);
 }

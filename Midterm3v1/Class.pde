@@ -1,4 +1,5 @@
-//Not feeling it
+//Source:Learning Processing //not used
+//Rain[] rains=new Rain[50];
 class Rain {
 float x,y;
 float speed;
