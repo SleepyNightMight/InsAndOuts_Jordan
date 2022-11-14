@@ -5,7 +5,7 @@ int value = 0;
 float move = 3;
 
 void setup(){
-size(1000,900);
+size(1080,900);
 String[] portList =Serial.list();
 printArray(portList);
 String portName =Serial.list()[0];
@@ -18,7 +18,6 @@ value = myPort.read();
 
 }
 
- 
   if (value > 100 && value <= 255) {
    background(#48a8e9);
   } else if(value <100 && value >=50)  {
@@ -28,9 +27,15 @@ value = myPort.read();
  fill(#f9d71c);
   ellipse(500, move, 300, 300);
   move = move + 1;
+  
+  
+fill(0,255,0);//Fall Grass
+  rect(0,600,1080,300);
  
  if(value <50 && value >=0){
  move = 0;
+ 
+ 
  }
  
 }
